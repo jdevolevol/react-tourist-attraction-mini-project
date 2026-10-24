@@ -20,38 +20,38 @@ const getTrips = async () => {
 
   return <div className="App">{
     <>
-      <h1 className="title">เที่ยวไหนดี</h1>
-      <section className="search-bar">
-      <label htmlFor="trip-search">ค้นหาที่เที่ยว</label>
-      <input className="trip-search" type="text" value={filterText} placeholder="หาที่เที่ยวแล้วไปกัน...." 
+    <h1 className="title">เที่ยวไหนดี</h1>
+    <section className="search">
+      <label htmlFor="search__input">ค้นหาที่เที่ยว</label>
+      <input className="search__input" type="text" value={filterText} placeholder="หาที่เที่ยวแล้วไปกัน...." 
       onChange={(event)=>{
           setFilterText(event.target.value)
         }
       }/>
     </section>
-   <section className="trips-list">
-    {!filterText ?<p className="notice">กรุณาพิมพ์</p>
-      :trips.length === 0 ?<p className="notice">ไม่พบข้อมูล</p>
+   <section className="content">
+    {trips.length === 0 ?<p className="trip__notice">ไม่พบข้อมูล</p>
       : trips.map((trip)=>(
-      <div className="trip-list" key={trip.eid}>
-        <img className="trip-main-img" src={trip.photos[0]} alt="" />
-        <h2 className="trip-title">{trip.title}</h2>
-        <p className="trip-description">{trip.description}</p>
-        
-        <div class="trip-tags">
-          <span>หมวด</span>
-        {trip.tags.map((tag,index)=>(
-          <span class="trip-tag" key={index}>{tag}</span>
-          )
-        )}
-        </div>
-        <div class="trip-photos">
-          {trip.photos.slice(1).map((photo,index)=>(
-              <img className="trip-photo" key={index} src={photo} alt="trip-photo" />
+      <div className="trip" key={trip.eid}>
+        <img className="trip__img" src={trip.photos[0]} alt="" />
+        <div className="trip-content">
+          <h2 className="trip__title">{trip.title}</h2>
+          <p className="trip__description">{trip.description}</p>
+          <div class="trip-tags">
+            <span class="trip__head-tag">หมวด</span>
+          {trip.tags.map((tag,index)=>(
+            <span class="trip__tag" key={index}>{tag}</span>
             )
           )}
+          </div>
+          <div class="trip-photos">
+            {trip.photos.slice(1).map((photo,index)=>(
+                <img className="trip__photo" key={index} src={photo} alt="trip-photo" />
+              )
+            )}
+          </div>
         </div>
-        <a href={trip.url}><img src="./src/img/link-icon.svg" alt="" /></a>
+        <a className="trip__url" href={trip.url}><img src="./src/img/link-icon.svg" alt="" /></a>
       </div>
       )
       )
