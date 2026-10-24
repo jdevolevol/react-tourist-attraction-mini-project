@@ -41,7 +41,7 @@ const getTrips = async () => {
           <div className="trip-tags">
             <span className="trip__head-tag">หมวด</span>
           {trip.tags.map((tag,index)=>(
-            <span class="trip__tag" key={index}>{tag}</span>
+            <button class="trip__tag" key={index} onClick={()=>setFilterText(tag)}>{tag}</button>
             )
           )}
           </div>

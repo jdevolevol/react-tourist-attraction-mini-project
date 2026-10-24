@@ -27,6 +27,7 @@ img{
     flex-direction: column;
     gap: 20px;
     width: 60%;
+    margin-bottom: 15px ;
 }
 
 .search__input{
@@ -64,6 +65,7 @@ img{
 .trip__main-photo{
     flex:0 0 30%;
     height: 15rem;
+    width: 25rem;
     border-radius: 15px;
 }
 
@@ -78,13 +80,25 @@ img{
 }
 
 .trip__title{
-
+    
 }
         
 .trip__description{
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.trip-tags{
+    display: flex;
+    gap:20px;
+}
+
+.trip__tag{
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .trip-photos{
@@ -102,4 +116,49 @@ img{
     right: 0;
     bottom: 0;
         position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .title{
+        font-size: 3rem;
+    }
+
+    .search{
+        width: 90%;
+    
+    }
+
+    .content{
+        width: 100%;
+    }
+
+    .trip{
+        padding: 1rem;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+
+    .trip__title{
+        font-size: 1.3rem;
+    }
+
+    .trip-content{
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .trip__description{
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .trip__url{
+        transform: scale(0.8);
+    }
 }
