@@ -20,10 +20,10 @@ const getTrips = async () => {
 
   return <div className="App">{
     <>
-    <section class="search-bar">
-      <h1>เที่ยวไหนดี</h1>
+      <h1 className="title">เที่ยวไหนดี</h1>
+      <section className="search-bar">
       <label htmlFor="trip-search">ค้นหาที่เที่ยว</label>
-      <input id="trip-search" type="text" value={filterText} placeholder="หาที่เที่ยวแล้วไปกัน...." 
+      <input className="trip-search" type="text" value={filterText} placeholder="หาที่เที่ยวแล้วไปกัน...." 
       onChange={(event)=>{
           setFilterText(event.target.value)
         }
