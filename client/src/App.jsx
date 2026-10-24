@@ -29,7 +29,6 @@ const getTrips = async () => {
         }
       }/>
     </section>
-   {console.log(trips) /*test*/}
    <section className="trips-list">
     {trips.map((trip)=>(
       <div className="trip-list" key={trip.eid}>
@@ -50,7 +49,7 @@ const getTrips = async () => {
             )
           )}
         </div>
-        <a href={trip.url}><img src="" alt="url-link" /></a>
+        <a href={trip.url}><img src="./src/img/link-icon.svg" alt="" /></a>
       </div>
       )
     )}
