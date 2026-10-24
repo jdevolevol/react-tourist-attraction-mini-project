@@ -30,28 +30,29 @@ const getTrips = async () => {
       }/>
     </section>
    <section className="content">
-    {trips.length === 0 ?<p className="trip__notice">ไม่พบข้อมูล</p>
+    {trips.length === 0 ?<p className="content--notice">ไม่พบข้อมูล</p>
       : trips.map((trip)=>(
       <div className="trip" key={trip.eid}>
-        <img className="trip__img" src={trip.photos[0]} alt="" />
+        <img className="trip__main-photo" src={trip.photos[0]} alt="" />
         <div className="trip-content">
           <h2 className="trip__title">{trip.title}</h2>
           <p className="trip__description">{trip.description}</p>
-          <div class="trip-tags">
-            <span class="trip__head-tag">หมวด</span>
+          <a href="">อ่านต่อ...</a>
+          <div className="trip-tags">
+            <span className="trip__head-tag">หมวด</span>
           {trip.tags.map((tag,index)=>(
             <span class="trip__tag" key={index}>{tag}</span>
             )
           )}
           </div>
-          <div class="trip-photos">
+          <div className="trip-photos">
             {trip.photos.slice(1).map((photo,index)=>(
                 <img className="trip__photo" key={index} src={photo} alt="trip-photo" />
               )
             )}
           </div>
+          <a className="trip__url" href={trip.url}><img src="./src/img/link-icon.svg" alt="" /></a>
         </div>
-        <a className="trip__url" href={trip.url}><img src="./src/img/link-icon.svg" alt="" /></a>
       </div>
       )
       )
