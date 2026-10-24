@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 import axios from "axios"
 
 function App() {
-const [filterText,setFilterText] = useState();
+const [filterText,setFilterText] = useState("");
 const [trips,setTrips] = useState([]);
 
 useEffect(()=>{
@@ -30,7 +30,9 @@ const getTrips = async () => {
       }/>
     </section>
    <section className="trips-list">
-    {trips.map((trip)=>(
+    {!filterText ?<p className="notice">กรุณาพิมพ์</p>
+      :trips.length === 0 ?<p className="notice">ไม่พบข้อมูล</p>
+      : trips.map((trip)=>(
       <div className="trip-list" key={trip.eid}>
         <img className="trip-main-img" src={trip.photos[0]} alt="" />
         <h2 className="trip-title">{trip.title}</h2>
@@ -52,7 +54,8 @@ const getTrips = async () => {
         <a href={trip.url}><img src="./src/img/link-icon.svg" alt="" /></a>
       </div>
       )
-    )}
+      )
+    }
     </section>
     </>
   }</div>;
