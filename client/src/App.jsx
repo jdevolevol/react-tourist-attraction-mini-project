@@ -13,8 +13,6 @@ const getTrips = async () => {
     setTrips(result.data.data);
 }
 
-
-
   return <div className="App">{
     <>
     <section class="search-bar">
@@ -26,21 +24,32 @@ const getTrips = async () => {
         }
       }/>
     </section>
-   
-    {/*test box*/}
-    <section className="trips-list">
-      <img className="trip-main-img" src="./src/assets/react.svg" alt="" />
-      <h2 className="trip-heading">heading...........</h2>
-      <p className="trip-content">content</p>
-      <div class="trip-catagory">
-        <span>catagory</span>
+   {console.log(trips) /*test*/}
+   <section className="trips-list">
+    {trips.map((trip)=>(
+      <div className="trip-list">
+        <img className="trip-main-img" src={trip.photos[0]} alt="" />
+        <h2 className="trip-title">{trip.title}</h2>
+        <p className="trip-description">{trip.description}</p>
+        
+        <div class="trip-tags">
+          <span>หมวด</span>
+        {trip.tags.map((tag)=>(
+          <span class="trip-tag">{tag}</span>
+          )
+        )}
+        </div>
+        <div class="trip-photos">
+          {trip.photos.slice(1).map((photo)=>(
+              <img className="trip-photo" src={photo} alt="trip-photo" />
+            )
+          )}
+        </div>
+        <a href={trip.url}><img src="" alt="url-link" /></a>
       </div>
-      <div trip-show-img>
-        <img src="./src/assets/react.svg" alt="" />
-      </div>
-      <a href=""><img src="" alt="" /></a>
+      )
+    )}
     </section>
-
     </>
   }</div>;
 }
