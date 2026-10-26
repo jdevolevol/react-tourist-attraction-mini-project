@@ -1,0 +1,164 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px ;
+    gap: 10px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.title{
+        font-size: 3rem;
+        color: #4A90E2;
+    }
+
+.search{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+    margin-bottom: 15px ;
+}
+
+.search__input{
+    border: none;
+    border-bottom: 1px solid #DBDBDB ;
+    width: 100%;
+    
+    &:focus{
+        outline: none;
+    }
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    max-width: 85rem;
+    
+    gap: 30px;
+}
+
+.content--notice{
+    margin: 100px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.trip{
+    padding: 0.1rem 10rem;
+    gap: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+}
+
+.trip__main-photo{
+    flex:0 0 30%;
+    height: 15rem;
+    width: 25rem;
+    border-radius: 15px;
+}
+
+.trip-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    position: relative;
+        flex:1;
+    
+}
+
+.trip__title{
+    
+}
+        
+.trip__description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.trip-tags{
+    display: flex;
+    gap:20px;
+}
+
+.trip__tag{
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.trip-photos{
+    display: flex;
+    gap: 10px ;
+}
+
+.trip__photo{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 15px;
+}
+
+.trip__url{
+    right: 0;
+    bottom: 0;
+        position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .title{
+        font-size: 3rem;
+    }
+
+    .search{
+        width: 90%;
+    
+    }
+
+    .content{
+        width: 100%;
+    }
+
+    .trip{
+        padding: 1rem;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+
+    .trip__title{
+        font-size: 1.3rem;
+    }
+
+    .trip-content{
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .trip__description{
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .trip__url{
+        transform: scale(0.8);
+    }
+}
